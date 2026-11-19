@@ -1,0 +1,82 @@
+/* Written from scratch. System fonts only: the page makes no external requests.
+   One serif for all content, one small sans for labels. Sizes follow a 1.25 scale,
+   spacing is in multiples of 0.75rem. */
+:root {
+  --text: #1c1c1c;
+  --muted: #6a6a6a;
+  --rule: #e3e3e0;
+  --link: #1f407a;
+  --bg: #fdfdfc;
+  --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  margin: 0 auto;
+  max-width: 54rem;
+  padding: 3.75rem 2rem 4.5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+a { color: var(--link); text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+p { margin: 0 0 0.75rem; }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.name { font-size: 2.45rem; line-height: 1.1; letter-spacing: -0.01em; color: var(--text); text-decoration: none; }
+nav a, footer {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+nav a { margin-left: 1.5rem; text-decoration: none; }
+nav a:first-child { margin-left: 0; }
+nav a:hover { color: var(--text); }
+
+section { padding-top: 3rem; }
+h2 { margin: 0 0 1.125rem; font-size: 1.56rem; font-weight: 400; line-height: 1.2; }
+
+.about { display: grid; grid-template-columns: 1fr 13rem; gap: 3rem; align-items: start; }
+.portrait { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.todo { color: var(--muted); }
+.links { margin-top: 1.125rem; }
+
+.papers { list-style: none; margin: 0; padding: 0; }
+.papers li { margin-bottom: 1.5rem; }
+.papers span { display: block; }
+.papers .title { font-size: 1.15rem; line-height: 1.35; margin-bottom: 0.2rem; }
+.papers .authors, .papers .venue { color: var(--muted); font-size: 0.92rem; }
+.papers .authors b { color: var(--text); font-weight: 600; }
+
+.dated { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.75rem 1.5rem; margin: 0; }
+.dated dt { color: var(--muted); white-space: nowrap; }
+.dated dd { margin: 0; }
+.dated dd span { display: block; }
+.dated .place b { font-weight: 600; }
+.dated .meta { color: var(--muted); font-size: 0.92rem; }
+.dated { row-gap: 1.125rem; }
+.links a { margin-right: 1.125rem; }
+
+footer { margin-top: 4.5rem; padding-top: 1.125rem; border-top: 1px solid var(--rule); text-transform: none; letter-spacing: 0.02em; }
+
+@media (max-width: 44rem) {
+  body { padding: 2.25rem 1.25rem 3rem; }
+  .name { font-size: 2rem; }
+  .about { grid-template-columns: 1fr; gap: 1.5rem; }
+  .dated { grid-template-columns: 1fr; gap: 0.1rem 0; }
+  .dated dd { margin-bottom: 0.75rem; }
+  nav a { margin-left: 0; margin-right: 1.1rem; }
+  .portrait { max-width: 12rem; order: -1; }
+}

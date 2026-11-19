@@ -1,0 +1,7 @@
+.DS_Store
+# source photos, not part of the site
+*.heic
+/ESA.jpg
+/ETH.jpg
+# CV with private details (address, phone, date of birth)
+/CV_MIL.pdf
